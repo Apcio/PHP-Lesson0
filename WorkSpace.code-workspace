@@ -1,0 +1,16 @@
+{
+	"folders": [],
+	"settings": {},
+	"launch": {
+		"configurations": [
+			{
+				"name": "Test aplikacji",
+				"type": "chrome",
+				"request": "launch",
+				"sourceMaps": true,
+				"file": "/var/www/html/PHP/start.html"
+			}
+		],
+		"compounds": []
+	}
+}

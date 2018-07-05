@@ -1,0 +1,11 @@
+{
+    "name": "apcio/php-lessons",
+    "description": "test php",
+    "authors": [
+        {
+            "name": "Apcio",
+            "email": "tomasz.m2@gmail.com"
+        }
+    ],
+    "require": {}
+}

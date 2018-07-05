@@ -42,5 +42,8 @@
             <input type="text" id="zad3"><input type="button" value="Testuj" onclick="pobierzZ3()">
             <p id="zad3_odp"></p>
         </p>
+        <p>
+            4. Połącz VSC z GITem.
+        </p>
     </body>
 </html>

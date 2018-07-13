@@ -4,7 +4,7 @@
         <script type="text/javascript" src="..\biblioteki\jquery.js"></script>
         <script type="text/javascript">
             function pobierzZ3() {
-                var elem = $("#zad3")[0].Value;
+                var elem = $("#zad3")[0].value;
                 $.ajax({
                             type: "POST",
                             url: "funkcje.php",
@@ -12,8 +12,18 @@
                                     zadanie: 'zadanie3_Uruchom',
                                     pesel: elem
                                   },
+                            dataType: "JSON",
                             success: function(zwrot) {
-                                document.getElementById("zad3_odp").innerHTML = zwrot;
+                                document.getElementById("zad3_a").innerHTML = zwrot.a;
+                                document.getElementById("zad3_b").innerHTML = zwrot.b;
+                                if (zwrot.c === false) {
+                                    zwrot.c = 'Nie można odczytać daty z PESELu';
+                                }
+                                else {
+                                    zwrot.c = new Date(zwrot.c.date);
+                                    zwrot.c = zwrot.c.toLocaleDateString();
+                                }
+                                document.getElementById("zad3_c").innerHTML = zwrot.c;
                             }
                         }
                     )
@@ -38,9 +48,11 @@
             ?>
         </p>
         <p>
-            3. Pobierz datę z PESEL:
-            <input type="text" id="zad3"><input type="button" value="Testuj" onclick="pobierzZ3()">
-            <p id="zad3_odp"></p>
+            3. Test PESEL:
+            <input type="number" id="zad3"><input type="button" value="Testuj" onclick="pobierzZ3()">
+            <p style="text-indent: 20px">a: Poprawność PESEL: <span id="zad3_a"></span></p>
+            <p style="text-indent: 20px">b: Płeć: <span id="zad3_b"></span></p>
+            <p style="text-indent: 20px">c: Data: <span id="zad3_c"></span></p>
         </p>
         <p>
             4. Połącz VSC z GITem.
